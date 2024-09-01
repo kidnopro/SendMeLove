@@ -1,44 +1,50 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg">
+    <header className="bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-600 text-white shadow-lg">
       <div className="container mx-auto p-4 flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-2xl font-bold tracking-wide">
+        <div className="text-xl font-bold tracking-wide">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            KidNoPro
+            hoanganh_dev
           </motion.div>
         </div>
 
-        {/* Navigation Links */}
         <nav className="hidden md:flex space-x-8 font-medium">
-          <a href="#" className="hover:text-gray-300 transition duration-300">
+          <a
+            href=""
+            className="hover:text-gray-300 transition duration-300 relative group"
+          >
             Home
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
           </a>
-          <a href="#" className="hover:text-gray-300 transition duration-300">
-            About
+          <a
+            href="https://www.facebook.com/thichfixbug"
+            className="hover:text-gray-300 transition duration-300 relative group"
+          >
+            Facebook
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
           </a>
-          <a href="#" className="hover:text-gray-300 transition duration-300">
-            Services
-          </a>
-          <a href="#" className="hover:text-gray-300 transition duration-300">
-            Contact
+          <a
+            href="https://www.instagram.com/kidnopro_dev/"
+            className="hover:text-gray-300 transition duration-300 relative group"
+          >
+            Instagram
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
           </a>
         </nav>
 
-        {/* Hamburger Menu for Mobile */}
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-200 hover:text-white focus:outline-none"
+            className="text-gray-200 hover:text-white focus:outline-none relative group"
           >
             <svg
               className="h-8 w-8"
@@ -54,30 +60,41 @@ const Header = () => {
                 d="M4 6h16M4 12h16m-7 6h7"
               />
             </svg>
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          transition={{ duration: 0.5 }}
-          className="md:hidden bg-indigo-600 text-white font-medium"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -30 }}
+          transition={{ duration: 0.4 }}
+          className="md:hidden bg-gradient-to-r from-indigo-700 via-purple-800 to-pink-700 text-white font-medium shadow-xl rounded-lg"
         >
-          <a href="#" className="block px-4 py-2 hover:bg-indigo-700">
+          <a
+            href=""
+            className="block px-6 py-4 hover:bg-indigo-800 transition duration-300 transform hover:scale-105"
+          >
             Home
           </a>
-          <a href="#" className="block px-4 py-2 hover:bg-indigo-700">
-            About
+          <a
+            href="https://www.facebook.com/thichfixbug"
+            className="block px-6 py-4 hover:bg-indigo-800 transition duration-300 transform hover:scale-105"
+          >
+            Facebook
           </a>
-          <a href="#" className="block px-4 py-2 hover:bg-indigo-700">
-            Services
+          <a
+            href="#"
+            className="block px-6 py-4 hover:bg-indigo-800 transition duration-300 transform hover:scale-105"
+          >
+            Instagram
           </a>
-          <a href="#" className="block px-4 py-2 hover:bg-indigo-700">
-            Contact
-          </a>
+          <a
+            href="#"
+            className="block px-6 py-4 hover:bg-indigo-800 transition duration-300 transform hover:scale-105"
+          ></a>
         </motion.div>
       )}
     </header>
