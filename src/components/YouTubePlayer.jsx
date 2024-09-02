@@ -1,32 +1,37 @@
-// src/components/MusicPlayer.js
 import { useEffect } from "react";
 
 const MusicPlayer = () => {
   useEffect(() => {
-    const iframe = document.getElementById("youtube-music");
-    if (iframe) {
-      const sendPlayCommand = () => {
-        iframe.contentWindow.postMessage(
-          '{"event":"command","func":"playVideo","args":""}',
-          "*"
-        );
+    const loadYouTubeAPI = () => {
+      const script = document.createElement("script");
+      script.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(script);
+
+      script.onload = () => {
+        new window.YT.Player("youtube-music", {
+          height: "0",
+          width: "0",
+          videoId: "kMg3wTAhNsY",
+          playerVars: {
+            autoplay: 1,
+            mute: 0,
+            playsinline: 1,
+          },
+          events: {
+            onReady: (event) => {
+              event.target.playVideo();
+            },
+          },
+        });
       };
-      setTimeout(sendPlayCommand, 1000);
-    }
+    };
+
+    loadYouTubeAPI();
   }, []);
 
   return (
     <div>
-      <iframe
-        id="youtube-music"
-        width="0"
-        height="0"
-        src="https://www.youtube.com/embed/kMg3wTAhNsY?autoplay=1&mute=0"
-        frameBorder="0"
-        allow="autoplay; encrypted-media"
-        allowFullScreen
-        title="YouTube Music"
-      />
+      <div id="youtube-music"></div> 
     </div>
   );
 };

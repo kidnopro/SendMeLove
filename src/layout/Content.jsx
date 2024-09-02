@@ -5,7 +5,7 @@ import "../css/style.css";
 const AnonymousMessageForm = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const [isSpinning, setIsSpinning] = useState(false); 
+  const [isSpinning, setIsSpinning] = useState(false);
   const randomMessages = [
     "Anh có iu em hông =))))",
     "Em chào anh Hoàng Anh!",
@@ -13,13 +13,13 @@ const AnonymousMessageForm = () => {
   ];
 
   const handleRandomMessage = () => {
-    setIsSpinning(true); 
+    setIsSpinning(true);
     setTimeout(() => {
       const randomIndex = Math.floor(Math.random() * randomMessages.length);
       setMessage(randomMessages[randomIndex]);
       setError("");
-      setIsSpinning(false); 
-    }, 1000); 
+      setIsSpinning(false);
+    }, 1000);
   };
 
   const handleSubmit = async (e) => {
@@ -71,7 +71,10 @@ const AnonymousMessageForm = () => {
         <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 text-center">
           Thư ẩn danh
         </h2>
-        <form className="flex flex-col h-full space-y-4" onSubmit={handleSubmit}>
+        <form
+          className="flex flex-col h-full space-y-4"
+          onSubmit={handleSubmit}
+        >
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileFocus={{ scale: 1.05 }}
@@ -109,7 +112,7 @@ const AnonymousMessageForm = () => {
             className="w-full mt-4 bg-blue-600 text-white py-2 sm:py-3 rounded-md hover:bg-blue-700 transition duration-300 flex justify-center items-center"
           >
             <motion.span
-              animate={isSpinning ? { rotate: 360 } : { rotate: 0 }} 
+              animate={isSpinning ? { rotate: 360 } : { rotate: 0 }}
               transition={{ repeat: isSpinning ? Infinity : 0, duration: 1 }}
             >
               🎲
