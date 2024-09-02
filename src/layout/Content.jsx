@@ -4,7 +4,8 @@ import "../css/style.css";
 
 const AnonymousMessageForm = () => {
   const [message, setMessage] = useState("");
-
+  const [error, setError] = useState("");
+  const [isSpinning, setIsSpinning] = useState(false); 
   const randomMessages = [
     "Anh có iu em hông =))))",
     "Em chào anh Hoàng Anh!",
@@ -12,33 +13,43 @@ const AnonymousMessageForm = () => {
   ];
 
   const handleRandomMessage = () => {
-    const randomIndex = Math.floor(Math.random() * randomMessages.length);
-    setMessage(randomMessages[randomIndex]);
+    setIsSpinning(true); 
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * randomMessages.length);
+      setMessage(randomMessages[randomIndex]);
+      setError("");
+      setIsSpinning(false); 
+    }, 1000); 
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!message.trim()) {
+      setError("Vui lòng nhập nội dung trước khi gửi.");
+      return;
+    }
+
+    setError("");
+
     const formURL =
-      "https://docs.google.com/forms/d/e/1FAIpQLSfIYKl0u5pb-xfJOQnqhTSm3jdbRUbDooc6x0N3G2zUregvXw/formResponse"; // Thay FORM_ID bằng ID của form của bạn
+      "https://docs.google.com/forms/d/e/1FAIpQLSfIYKl0u5pb-xfJOQnqhTSm3jdbRUbDooc6x0N3G2zUregvXw/formResponse";
 
     const formData = new FormData();
     formData.append("entry.397582701", message);
 
     try {
-      const response = await fetch(formURL, {
+      await fetch(formURL, {
         method: "POST",
         body: formData,
         mode: "no-cors",
       });
-      
-     
+
       alert("Gửi thành công!");
       setMessage("");
     } catch (error) {
       console.error("Có lỗi xảy ra khi gửi dữ liệu:", error);
-      
-
+      alert("Có lỗi xảy ra khi gửi dữ liệu.");
     }
   };
 
@@ -58,12 +69,9 @@ const AnonymousMessageForm = () => {
         style={{ height: "350px" }}
       >
         <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 text-center">
-          Gửi thư ẩn danh
+          Thư ẩn danh
         </h2>
-        <form
-          className="flex flex-col h-full space-y-4"
-          onSubmit={handleSubmit}
-        >
+        <form className="flex flex-col h-full space-y-4" onSubmit={handleSubmit}>
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileFocus={{ scale: 1.05 }}
@@ -74,15 +82,21 @@ const AnonymousMessageForm = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-              placeholder="Nhập nội dung thư ẩn danh"
+              placeholder="Nhập nội dung để submit nhé"
             />
+            {error && <span className="text-red-500 text-sm">{error}</span>}
           </motion.div>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 sm:py-3 rounded-md hover:bg-blue-700 transition duration-300"
+            disabled={!message.trim()}
+            className={`w-full py-2 sm:py-3 rounded-md transition duration-300 ${
+              message.trim()
+                ? "bg-blue-600 text-white hover:bg-blue-700"
+                : "bg-gray-400 text-gray-200 cursor-not-allowed"
+            }`}
           >
             Gửi
           </motion.button>
@@ -92,9 +106,15 @@ const AnonymousMessageForm = () => {
             whileTap={{ scale: 0.95 }}
             type="button"
             onClick={handleRandomMessage}
-            className="w-full mt-4 bg-gray-300 text-black py-2 sm:py-3 rounded-md hover:bg-gray-400 transition duration-300 flex justify-center items-center"
+            className="w-full mt-4 bg-blue-600 text-white py-2 sm:py-3 rounded-md hover:bg-blue-700 transition duration-300 flex justify-center items-center"
           >
-            🎲 Tạo nội dung ngẫu nhiên
+            <motion.span
+              animate={isSpinning ? { rotate: 360 } : { rotate: 0 }} 
+              transition={{ repeat: isSpinning ? Infinity : 0, duration: 1 }}
+            >
+              🎲
+            </motion.span>
+            Tạo nội dung ngẫu nhiên
           </motion.button>
         </form>
       </motion.div>

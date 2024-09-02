@@ -52,7 +52,7 @@ const Modal = () => {
 
             <div className="mb-6">
               <p className="text-gray-700">
-                Chào mừng bạn đã đến blog nhỏ của mình ! <br />
+                Welcome.Mình là Hoàng Anh! <br />
                 Gửi thư ẩn danh cho mình ở đây nha.
               </p>
             </div>
