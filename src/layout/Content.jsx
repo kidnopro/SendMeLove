@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../css/style.css";
 
 const AnonymousMessageForm = () => {
@@ -7,6 +9,8 @@ const AnonymousMessageForm = () => {
   const [error, setError] = useState("");
   const [isSpinning, setIsSpinning] = useState(false);
   const randomMessages = [
+    "Test",
+    "5cm",
     "Anh có iu em hông =))))",
     "Em chào anh Hoàng Anh!",
     "Em xin chào anh Hoàng Anh",
@@ -45,11 +49,11 @@ const AnonymousMessageForm = () => {
         mode: "no-cors",
       });
 
-      alert("Gửi thành công!");
+      toast.success("Gửi thành công!");
       setMessage("");
     } catch (error) {
       console.error("Có lỗi xảy ra khi gửi dữ liệu:", error);
-      alert("Có lỗi xảy ra khi gửi dữ liệu.");
+      toast.error("Có lỗi xảy ra khi gửi dữ liệu.");
     }
   };
 
@@ -121,6 +125,7 @@ const AnonymousMessageForm = () => {
           </motion.button>
         </form>
       </motion.div>
+      <ToastContainer />
     </div>
   );
 };

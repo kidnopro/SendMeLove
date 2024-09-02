@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import CSS for Toastify
 
 const Modal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -6,7 +8,7 @@ const Modal = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true);
-    }, 5000);
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -19,6 +21,11 @@ const Modal = () => {
       return () => clearTimeout(closeTimer);
     }
   }, [isOpen]);
+
+  const handleAgree = () => {
+    toast.success("Cảm ơn vì đã nhấn đồng ý :v");
+    setIsOpen(false);
+  };
 
   return (
     <div className="font-sans">
@@ -65,7 +72,7 @@ const Modal = () => {
                 Hủy
               </button>
               <button
-                onClick={() => alert("Cảm ơn vì đã nhấn đồng ý :v")}
+                onClick={handleAgree}
                 className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none"
               >
                 Đồng Ý
@@ -74,6 +81,17 @@ const Modal = () => {
           </div>
         </div>
       )}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
