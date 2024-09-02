@@ -1,39 +1,45 @@
-import { useEffect } from "react";
+import { useState } from "react";
+import Modal from "react-modal";
+import YouTube from "react-youtube";
 
-const MusicPlayer = () => {
-  useEffect(() => {
-    const loadYouTubeAPI = () => {
-      const script = document.createElement("script");
-      script.src = "https://www.youtube.com/iframe_api";
-      document.body.appendChild(script);
+Modal.setAppElement("#root");
+const NotificationButton = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-      script.onload = () => {
-        new window.YT.Player("youtube-music", {
-          height: "0",
-          width: "0",
-          videoId: "kMg3wTAhNsY",
-          playerVars: {
-            autoplay: 1,
-            mute: 0,
-            playsinline: 1,
-          },
-          events: {
-            onReady: (event) => {
-              event.target.playVideo();
-            },
-          },
-        });
-      };
-    };
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
 
-    loadYouTubeAPI();
-  }, []);
+  const opts = {
+    height: "390",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+      mute: 0,
+    },
+  };
 
   return (
     <div>
-      <div id="youtube-music"></div> 
+      <header className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-lg">
+        <button
+          onClick={openModal}
+          className="mx-auto flex justify-between items-center"
+        >
+          Nhấp vào đây để ủng hộ mình :v
+        </button>
+      </header>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Music Modal"
+        className="modal-content"
+        overlayClassName="modal-overlay"
+      >
+        <button onClick={closeModal}>&times;</button>
+        <YouTube videoId="kMg3wTAhNsY" opts={opts} />
+      </Modal>
     </div>
   );
 };
 
-export default MusicPlayer;
+export default NotificationButton;

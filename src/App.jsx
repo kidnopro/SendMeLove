@@ -8,11 +8,12 @@ import Header from "./layout/Header";
 function App() {
   return (
     <>
+      <MusicPlayer/>
       <Modal />
       <Header />
       <AnonymousMessageForm />
       <Footer/>
-      <MusicPlayer/>
+     
     </>
   );
 }
