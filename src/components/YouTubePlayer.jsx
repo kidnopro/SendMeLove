@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import YouTube from "react-youtube";
 
 Modal.setAppElement("#root");
+
 const NotificationButton = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -13,8 +14,8 @@ const NotificationButton = () => {
     height: "390",
     width: "100%",
     playerVars: {
-      autoplay: 1,
-      mute: 0,
+      autoplay: 1, // Đảm bảo video tự động phát
+      mute: 0, // Bỏ tùy chọn âm thanh (Có thể để 1 nếu không muốn âm thanh)
     },
   };
 
