@@ -13,7 +13,7 @@
   left: 50%;
   width: 30px;
   height: 30px;
-  background-image: url("https://emojigraph.org/media/emojidex/snail_1f40c.png"); /* Đường dẫn đến hình ảnh con ốc sên */
+  background-image: url("https://emojigraph.org/media/emojidex/snail_1f40c.png");
   background-size: contain;
   background-repeat: no-repeat;
   animation: snail-fall 8s linear infinite;

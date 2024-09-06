@@ -39,6 +39,7 @@ const Header = () => {
             Instagram
             <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
           </a>
+          
         </nav>
 
         <div className="md:hidden">
