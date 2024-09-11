@@ -58,7 +58,7 @@ const AnonymousMessageForm = () => {
   };
 
   return (
-    <div className="relative flex justify-center pt-12 min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 font-sans animated-gradient">
+    <div className="relative flex justify-center pt-12 min-h-screen bg-blue-500 py-4">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="snail"></div>
         <div className="snail"></div>

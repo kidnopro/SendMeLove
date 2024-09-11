@@ -13,7 +13,7 @@ const Modal = () => {
   }, []);
 
   const handleAgree = () => {
-    toast.success("Đống ý là yêu mình nhé :v");
+    toast.success("Đồng ý là yêu mình nhé :v");
     setIsOpen(false);
   };
 
@@ -24,7 +24,7 @@ const Modal = () => {
           <div className="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-lg">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-xl font-semibold text-gray-900">
-                Hello
+                Hello !
               </h3>
               <button
                 onClick={() => setIsOpen(false)}
@@ -50,7 +50,7 @@ const Modal = () => {
             <div className="mb-6">
               <p className="text-gray-700">
                 Welcome. Mình là <a href="" className="text-blue-600 font-bold">Hoàng Anh</a> <br />
-                Blog này mình code dạo để test. <br />
+                Site này mình code dạo để test. <br />
                 Gửi thư ẩn danh cho mình ở đây nha.
               </p>
             </div>

@@ -5,9 +5,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-lg">
+    <header className="bg-blue-500 py-4 text-white">
       <div className="container mx-auto p-4 flex justify-between items-center">
-        <div className="text-xl font-bold tracking-wide">
+        <div className="text-xl font-bold tracking-wide text-white">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -39,7 +39,14 @@ const Header = () => {
             Instagram
             <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
           </a>
-          
+
+          <a
+            href="https://locket.cam/kidnopro"
+            className="hover:text-gray-300 transition duration-300 relative group"
+          >
+            Locket
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+          </a>
         </nav>
 
         <div className="md:hidden">
@@ -95,7 +102,7 @@ const Header = () => {
             </button>
           </div>
           <a
-            href=""
+            href="/"
             className="block px-6 py-4 hover:bg-indigo-800 transition duration-300"
           >
             Home
@@ -117,6 +124,12 @@ const Header = () => {
             className="block px-6 py-4 hover:bg-indigo-800 transition duration-300"
           >
             Instagram
+          </a>
+          <a
+            href="https://locket.cam/kidnopro"
+            className="block px-6 py-4 hover:bg-indigo-800 transition duration-300"
+          >
+            Locket
           </a>
         </motion.div>
       )}
