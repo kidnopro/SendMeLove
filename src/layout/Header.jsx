@@ -5,9 +5,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-blue-500 py-4 text-white">
+    <header className="bg-[#8EE4AF] text-[#05386B]">
       <div className="container mx-auto p-4 flex justify-between items-center">
-        <div className="text-xl font-bold tracking-wide text-white">
+        <div className="text-xl font-bold tracking-wide text-[#05386B]">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -17,7 +17,7 @@ const Header = () => {
           </motion.div>
         </div>
 
-        <nav className="hidden md:flex space-x-8 font-medium">
+        <nav className="hidden md:flex space-x-8 font-bold">
           <a
             href="https://www.facebook.com/kidnopro"
             className="hover:text-gray-300 transition duration-300 relative group"
@@ -52,7 +52,7 @@ const Header = () => {
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-200 hover:text-white focus:outline-none"
+            className="text-gray-200 hover:text-[#379683] focus:outline-none"
           >
             <svg
               className="h-8 w-8"
@@ -78,12 +78,12 @@ const Header = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: "100%" }}
           transition={{ duration: 0.4 }}
-          className="fixed top-0 right-0 w-64 h-full bg-pink-400 text-white font-medium shadow-lg rounded-l-lg z-50"
+          className="fixed top-0 right-0 w-64 h-full bg-[#379683] text-white font-medium shadow-lg rounded-l-lg z-50"
         >
           <div className="flex justify-end p-4">
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white hover:text-gray-300 focus:outline-none"
+              className="text-white hover:text-[#379683] focus:outline-none"
             >
               <svg
                 className="h-8 w-8"

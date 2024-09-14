@@ -58,7 +58,7 @@ const AnonymousMessageForm = () => {
   };
 
   return (
-    <div className="relative flex justify-center pt-12 min-h-screen bg-blue-500 py-4">
+    <div className="relative flex justify-center pt-12 min-h-screen bg-[#8EE4AF] py-4">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="snail"></div>
         <div className="snail"></div>
@@ -113,7 +113,7 @@ const AnonymousMessageForm = () => {
             whileTap={{ scale: 0.95 }}
             type="button"
             onClick={handleRandomMessage}
-            className="w-full mt-4 bg-blue-600 text-white py-2 sm:py-3 rounded-md hover:bg-blue-700 transition duration-300 flex justify-center items-center"
+            className="w-full mt-4 bg-[#8EE4AF] text-black py-2 sm:py-3 rounded-md hover:bg-blue-500 transition duration-300 flex justify-center items-center"
           >
             <motion.span
               animate={isSpinning ? { rotate: 360 } : { rotate: 0 }}
