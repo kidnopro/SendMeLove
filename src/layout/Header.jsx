@@ -13,13 +13,13 @@ const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            kidnopro_dev
+            <a href="">kidnopro_dev</a>
           </motion.div>
         </div>
 
         <nav className="hidden md:flex space-x-8 font-medium">
           <a
-            href="https://www.facebook.com/thichfixbug"
+            href="https://www.facebook.com/kidnopro"
             className="hover:text-gray-300 transition duration-300 relative group"
           >
             Facebook
@@ -78,7 +78,7 @@ const Header = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: "100%" }}
           transition={{ duration: 0.4 }}
-          className="fixed top-0 right-0 w-64 h-full bg-gradient-to-r from-indigo-700 via-purple-800 to-pink-700 text-white font-medium shadow-lg rounded-l-lg z-50"
+          className="fixed top-0 right-0 w-64 h-full bg-pink-400 text-white font-medium shadow-lg rounded-l-lg z-50"
         >
           <div className="flex justify-end p-4">
             <button
@@ -108,7 +108,7 @@ const Header = () => {
             Home
           </a>
           <a
-            href="https://www.facebook.com/thichfixbug"
+            href="https://www.facebook.com/kidnopro"
             className="block px-6 py-4 hover:bg-indigo-800 transition duration-300"
           >
             Facebook

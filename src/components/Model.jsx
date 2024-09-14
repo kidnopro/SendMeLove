@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Modal = () => {
@@ -23,9 +23,7 @@ const Modal = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-lg">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-semibold text-gray-900">
-                Hello !
-              </h3>
+              <h3 className="text-xl font-semibold text-gray-900">Hello !</h3>
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-gray-500 hover:text-gray-700 focus:outline-none"
@@ -49,7 +47,14 @@ const Modal = () => {
 
             <div className="mb-6">
               <p className="text-gray-700">
-                Welcome. Mình là <a href="" className="text-blue-600 font-bold">Hoàng Anh</a> <br />
+                Welcome. Mình là{" "}
+                <a
+                  href="https://www.facebook.com/kidnopro"
+                  className="text-blue-600 font-bold"
+                >
+                  Hoàng Anh
+                </a>{" "}
+                <br />
                 Site này mình code dạo để test. <br />
                 Gửi thư ẩn danh cho mình ở đây nha.
               </p>
@@ -72,7 +77,6 @@ const Modal = () => {
           </div>
         </div>
       )}
-      
     </div>
   );
 };
